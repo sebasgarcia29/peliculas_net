@@ -1,8 +1,8 @@
-import { InterfaceMovie } from '../../models/InterfaceMovie';
+import { InterfaceMovie } from '../../../models/InterfaceMovie';
 import MovieIndividual from '../movie/movieIndividual';
 import css from './listMovies.module.css'
-import { ListGeneric } from '../../utils/ListGeneric/ListGeneric';
-import { Loading } from '../../components/Loading';
+import { ListGeneric } from '../../../utils/ListGeneric/ListGeneric';
+import { Loading } from '../../../components/Loading';
 
 
 interface ListMoviesProps {

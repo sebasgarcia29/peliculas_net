@@ -1,5 +1,4 @@
-import { useEffect } from 'react'
-import axios, { AxiosResponse } from 'axios'
+
 import { Link } from 'react-router-dom'
 
 const IndexGenders = () => {
@@ -15,7 +14,7 @@ const IndexGenders = () => {
     return (
         <>
             <h3>Index Genders</h3>
-            <Link to={"gender/crear"}> Create gender </Link>
+            <Link to={"genders/create"}> Create gender </Link>
         </>
     )
 }

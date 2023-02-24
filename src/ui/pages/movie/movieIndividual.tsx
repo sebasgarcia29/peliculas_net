@@ -1,4 +1,4 @@
-import { InterfaceMovie } from '../../models/InterfaceMovie';
+import { InterfaceMovie } from '../../../models/InterfaceMovie';
 import css from './movieIndividual.module.css';
 
 
