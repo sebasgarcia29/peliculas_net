@@ -1,17 +1,30 @@
 
 interface PropsButton {
     children: React.ReactNode;
-    onClick: () => void;
+    onClick?: () => void;
+    type: 'submit' | 'button';
+    disabled: boolean
+    className?: string
 }
 
-export const Button = (props: PropsButton) => {
+const Button = (props: PropsButton) => {
     return (
         <button
-            type='button'
-            className='btn btn-primary mt-2'
+            className={props.className}
+            type={props.type}
             onClick={props.onClick}
+            aria-pressed={props.disabled}
+            disabled={props.disabled}
         >
             {props.children}
         </button>
     )
 }
+
+Button.defaultProps = {
+    type: 'button',
+    disabled: false,
+    className: 'btn btn-primary m-2',
+};
+
+export default Button;

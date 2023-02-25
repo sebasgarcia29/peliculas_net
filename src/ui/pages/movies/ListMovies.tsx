@@ -1,7 +1,7 @@
 import { InterfaceMovie } from '../../../models/InterfaceMovie';
 import MovieIndividual from '../movie/movieIndividual';
 import css from './listMovies.module.css'
-import { ListGeneric } from '../../../utils/ListGeneric/ListGeneric';
+import { ListGeneric } from '../../../components/ListGeneric';
 import { Loading } from '../../../components/Loading';
 
 

@@ -7,9 +7,10 @@ import IndexCinemas from '../ui/cinemas/indexCinemas';
 import CreateGender from '../ui/genders/CreateGender';
 import EditGender from '../ui/genders/EditGender';
 import IndexGenders from '../ui/genders/indexGenders';
+import FilterMovies from '../ui/movies/FilterMovies';
 import createMovie from '../ui/movies/createMovie';
 import EditMovie from '../ui/movies/editMovie';
-import IndexMovies from '../ui/movies/indexMovie';
+// import IndexMovies from '../ui/movies/indexMovie';
 import RedirectionLading from '../ui/pages/RedirectionLandingPage/redirectionLading';
 import LandingPage from '../ui/pages/landingPage/LandingPage';
 
@@ -28,9 +29,10 @@ const routes = [
     { path: '/cinemas/edit/:id(\\d+)', component: EditCinema },
     { path: '/cinemas', component: IndexCinemas, exact: true },
 
+    { path: '/movies/filter', component: FilterMovies },
     { path: '/movies/create', component: createMovie },
     { path: '/movies/edit/:id(\\d+)', component: EditMovie },
-    { path: '/movies', component: IndexMovies, exact: true },
+    { path: '/movies', component: FilterMovies, exact: true },
     { path: '*', component: RedirectionLading }
 ];
 

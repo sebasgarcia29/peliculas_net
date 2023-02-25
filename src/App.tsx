@@ -6,10 +6,11 @@ import {
 } from 'react-router';
 import { Menu } from './router/Menu';
 import routes from './router/route-config';
+import configValidations from '../src/utils/validations';
+
+configValidations();
 
 function App() {
-
-
   return (
     <>
       <BrowserRouter>
@@ -26,7 +27,6 @@ function App() {
               </Route>
             )}
           </Switch>
-
         </div>
       </BrowserRouter>
     </>

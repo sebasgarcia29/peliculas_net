@@ -1,8 +1,17 @@
 import React from 'react'
+import FormCinema from './FormCinema';
 
 const createCinema = () => {
     return (
-        <div>createCinema</div>
+        <>
+            <div>createCinema</div>
+            <FormCinema
+                model={{
+                    name: ''
+                }}
+                onSubmit={(value) => console.log(value)}
+            />
+        </>
     )
 }
 

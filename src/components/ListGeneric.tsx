@@ -1,5 +1,5 @@
-import { Loading } from '../../components/Loading';
-import { InterfaceListGeneric } from '../../models/ListGeneric';
+import { Loading } from './Loading';
+import { InterfaceListGeneric } from '../models/ListGeneric';
 
 export const ListGeneric = (props: InterfaceListGeneric) => {
 
