@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Formik, FormikHelpers, Form } from 'formik';
 import { InterfaceMovieCreateDTO } from '../../models/InterfaceMovie';
 import FormGroupText from '../../components/FormGroupText';
-import FormGroupCheckbox from '../../components/FormGroupdCheckbox';
+import FormGroupCheckbox from '../../components/FormGroupCheckbox';
 import { FormGroupDate } from '../../components/FormGroupDate';
 import FormGroupImage from '../../components/FormGroupImage';
 import Button from '../../components/Button';
