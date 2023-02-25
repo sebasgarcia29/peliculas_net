@@ -9,11 +9,9 @@ interface InterfaceFromGroup {
 
 
 const FormGroupText = (props: InterfaceFromGroup) => {
-
     const { value, label, placeholder } = props;
-
     return (
-        <div className='form-groupd'>
+        <div className='form-group'>
             {label ? <label htmlFor={value}>{label}</label> : null}
             <Field name={value} className="form-control" placeholder={placeholder} />
             <ErrorMessage name={value} component='div' className='invalid-feedback' >
