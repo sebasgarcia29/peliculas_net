@@ -10,6 +10,7 @@ import FormGroupImage from '../../components/FormGroupImage';
 import Button from '../../components/Button';
 import MultipleSelector, { ModelselectorMultiple } from '../../components/MultipleSelector/MultipleSelector';
 import { ModelGenderDTO } from '../../models/modelsGender';
+import { cinemaDTO } from '../../models/modelCinema';
 
 
 
@@ -18,12 +19,21 @@ interface FormMoviesProps {
     onSubmit(values: InterfaceMovieCreateDTO, actions: FormikHelpers<InterfaceMovieCreateDTO>): void;
     gendersSelected: ModelGenderDTO[];
     gendersNotSelected: ModelGenderDTO[];
+    cinemaSelected: cinemaDTO[];
+    cinemaNotSelected: cinemaDTO[];
 
 }
 
 const FormMovies = (props: FormMoviesProps) => {
 
-    const { model, onSubmit, gendersSelected, gendersNotSelected } = props;
+    const {
+        model,
+        onSubmit,
+        gendersSelected,
+        gendersNotSelected,
+        cinemaNotSelected,
+        cinemaSelected,
+    } = props;
 
 
     const mapData = (data: ModelGenderDTO[]): ModelselectorMultiple[] => {
@@ -32,6 +42,8 @@ const FormMovies = (props: FormMoviesProps) => {
 
     const [gendersSelecteds, setGendersSelecteds] = useState(mapData(gendersSelected));
     const [gendersNotSelecteds, setGendersNotSelecteds] = useState(mapData(gendersNotSelected));
+    const [cinemaSelecteds, setCinemaSelecteds] = useState(mapData(cinemaNotSelected))
+    const [cinemaNotSelecteds, setCinemaNotSelecteds] = useState(mapData(cinemaSelected))
 
 
     return (
@@ -39,6 +51,7 @@ const FormMovies = (props: FormMoviesProps) => {
             initialValues={model}
             onSubmit={(values, actions) => {
                 values.gendersIds = gendersSelecteds.map((item) => item.key);
+                values.cinemasIds = cinemaSelecteds.map((item) => item.key);
                 onSubmit(values, actions);
             }}
             validationSchema={Yup.object({
@@ -63,7 +76,18 @@ const FormMovies = (props: FormMoviesProps) => {
                                 setGendersNotSelecteds(notSelected);
                             }}
                         />
+                    </div>
 
+                    <div className='form-group'>
+                        <label>Cinemas</label>
+                        <MultipleSelector
+                            selected={cinemaSelecteds}
+                            noSelected={cinemaNotSelecteds}
+                            onChange={(selected, notSelected) => {
+                                setCinemaSelecteds(selected);
+                                setCinemaNotSelecteds(notSelected)
+                            }}
+                        />
                     </div>
 
 

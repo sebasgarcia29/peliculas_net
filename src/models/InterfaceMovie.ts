@@ -12,4 +12,5 @@ export interface InterfaceMovieCreateDTO {
     poster?: File;
     posterURL?: string;
     gendersIds?: number[];
+    cinemasIds?: number[];
 }

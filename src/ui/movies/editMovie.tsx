@@ -1,6 +1,7 @@
 import React from 'react'
 import FormMovies from './FormMovies';
 import { ModelGenderDTO } from '../../models/modelsGender';
+import { cinemaDTO } from '../../models/modelCinema';
 
 const EditMovie = () => {
 
@@ -11,6 +12,14 @@ const EditMovie = () => {
     const gendersSelected: ModelGenderDTO[] = [
         { id: 3, name: 'Comedy' },
     ];
+    const cinemasSelected: cinemaDTO[] = [
+        { id: 1, name: 'Chipichape' },
+        { id: 2, name: 'Unicentro' },
+    ]
+    const cinemasNotSelected: cinemaDTO[] = [
+        { id: 3, name: 'Jardin Plaza' },
+        { id: 4, name: 'Pacific' },
+    ]
 
     return (
         <>
@@ -26,6 +35,8 @@ const EditMovie = () => {
                 onSubmit={values => console.log({ values })}
                 gendersNotSelected={gendersNotSelected}
                 gendersSelected={gendersSelected}
+                cinemaSelected={cinemasSelected}
+                cinemaNotSelected={cinemasNotSelected}
             />
         </>
     )
