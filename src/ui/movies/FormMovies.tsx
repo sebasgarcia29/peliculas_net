@@ -11,6 +11,8 @@ import Button from '../../components/Button';
 import MultipleSelector, { ModelselectorMultiple } from '../../components/MultipleSelector/MultipleSelector';
 import { ModelGenderDTO } from '../../models/modelsGender';
 import { cinemaDTO } from '../../models/modelCinema';
+import TypeAheadActors from '../../components/TypeAheadActors';
+import { ActorMovieDTO } from '../../models/modelsActors';
 
 
 
@@ -21,6 +23,7 @@ interface FormMoviesProps {
     gendersNotSelected: ModelGenderDTO[];
     cinemaSelected: cinemaDTO[];
     cinemaNotSelected: cinemaDTO[];
+    actoresSelectedProps: ActorMovieDTO[];
 
 }
 
@@ -33,6 +36,7 @@ const FormMovies = (props: FormMoviesProps) => {
         gendersNotSelected,
         cinemaNotSelected,
         cinemaSelected,
+        actoresSelectedProps
     } = props;
 
 
@@ -45,6 +49,8 @@ const FormMovies = (props: FormMoviesProps) => {
     const [cinemaSelecteds, setCinemaSelecteds] = useState(mapData(cinemaNotSelected))
     const [cinemaNotSelecteds, setCinemaNotSelecteds] = useState(mapData(cinemaSelected))
 
+    const [actoresSelected, setActoresSelected] = useState<ActorMovieDTO[]>(actoresSelectedProps)
+
 
     return (
         <Formik
@@ -52,6 +58,7 @@ const FormMovies = (props: FormMoviesProps) => {
             onSubmit={(values, actions) => {
                 values.gendersIds = gendersSelecteds.map((item) => item.key);
                 values.cinemasIds = cinemaSelecteds.map((item) => item.key);
+                values.actors = actoresSelected;
                 onSubmit(values, actions);
             }}
             validationSchema={Yup.object({
@@ -90,6 +97,31 @@ const FormMovies = (props: FormMoviesProps) => {
                         />
                     </div>
 
+                    <div className='form-group'>
+                        <TypeAheadActors
+                            actors={actoresSelected}
+                            onAdd={setActoresSelected}
+                            listUI={(actor) => (
+                                <>
+                                    {actor.name} <input
+                                        placeholder='Character'
+                                        type='text'
+                                        value={actor.name}
+                                        onChange={(e) => {
+                                            const index = actoresSelected.findIndex((x) => x.id === actor.id);
+                                            const newActors = [...actoresSelected];
+                                            newActors[index].character = e.target.value;
+                                            setActoresSelected(newActors);
+                                        }}
+                                    />
+                                </>
+                            )}
+                            onRemove={(actor) => {
+                                const newActors = actoresSelected.filter((x) => x.id !== actor.id);
+                                setActoresSelected(newActors);
+                            }}
+                        />
+                    </div>
 
 
                     <Button disabled={formikProps.isSubmitting} type='submit'>

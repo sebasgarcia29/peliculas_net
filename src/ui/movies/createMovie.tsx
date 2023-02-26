@@ -33,6 +33,7 @@ const createMovie = () => {
                 gendersSelected={[]}
                 cinemaSelected={[]}
                 cinemaNotSelected={cinemas}
+                actoresSelectedProps={[]}
             />
         </>
     )

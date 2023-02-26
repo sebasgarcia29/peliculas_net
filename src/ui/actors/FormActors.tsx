@@ -1,6 +1,6 @@
 import *  as Yup from 'yup';
 import { Form, Formik, FormikHelpers } from 'formik';
-import { actorCreateDTO } from '../../models/modelsActors';
+import { ActorCreateDTO } from '../../models/modelsActors';
 import FormGroupText from '../../components/FormGroupText';
 import Button from '../../components/Button';
 import { Link } from 'react-router-dom';
@@ -9,8 +9,8 @@ import FormGroupImage from '../../components/FormGroupImage';
 import FormGroupMarkDown from '../../components/Markdown/FormGroupMarkDown';
 
 interface FormActorsProps {
-    model: actorCreateDTO;
-    onSubmit: (values: actorCreateDTO, actions: FormikHelpers<actorCreateDTO>) => void;
+    model: ActorCreateDTO;
+    onSubmit: (values: ActorCreateDTO, actions: FormikHelpers<ActorCreateDTO>) => void;
 }
 
 

@@ -2,6 +2,7 @@ import React from 'react'
 import FormMovies from './FormMovies';
 import { ModelGenderDTO } from '../../models/modelsGender';
 import { cinemaDTO } from '../../models/modelCinema';
+import { ActorMovieDTO } from '../../models/modelsActors';
 
 const EditMovie = () => {
 
@@ -21,6 +22,10 @@ const EditMovie = () => {
         { id: 4, name: 'Pacific' },
     ]
 
+    const actoresSelected: ActorMovieDTO[] = [
+        { id: 1, name: "Danery Targaryen", picture: "https://pbs.twimg.com/profile_images/1243475459125456896/e-zIQiFY_400x400.jpg", character: "Daenerys Targaryen" },
+    ];
+
     return (
         <>
             <div>EditMovie</div>
@@ -37,6 +42,7 @@ const EditMovie = () => {
                 gendersSelected={gendersSelected}
                 cinemaSelected={cinemasSelected}
                 cinemaNotSelected={cinemasNotSelected}
+                actoresSelectedProps={actoresSelected}
             />
         </>
     )
